@@ -6,7 +6,7 @@ const Details = (props) => {
     <div>
     {
     user.map((elem,index)=>(
-        <div>
+        <div className='details'>
         <h1>{elem.name}</h1>
     <div>
     <h5>Email: {elem.email}</h5>

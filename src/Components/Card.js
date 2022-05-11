@@ -2,6 +2,7 @@ import React from 'react';
 import {users} from "../data";
 import { useState } from 'react';
 import Details from './Details';
+import "./card.css";
 
 const Card = () => {
     const [toggle,toggleHandler]=useState(false);
@@ -15,15 +16,15 @@ const Card = () => {
         setDetails(filtered);
     }
   return (
-      <>
-    <div>
+      <div className='cont'>
+    <div className='one'>
     {
         users.map((elem,index)=>(
-            <div key={index}>
+            <div key={index} className='tile'>
                 <h1>{elem.name}</h1>
                 <div>
-                    <h5>{elem.email}</h5>
-                    <h5>{elem.phone}</h5>
+                    <h5>Email: {elem.email}</h5>
+                    <h5>Phone: {elem.phone}</h5>
                 </div>
                 <button onClick={()=>clickHandler(elem.id)}>More details</button>
             </div>
@@ -31,9 +32,12 @@ const Card = () => {
 
     }
      </div>
-     {toggle ? <Details user={details}></Details>:<></>}
+     <div className='two'>
+     {toggle ? <Details user={details} ></Details>:<></>}
+     </div>
+    
    
-    </>
+    </div>
   )
 }
 
